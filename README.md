@@ -1,0 +1,1 @@
+A 2D RPG made in Unity with C#. It uses a powerful FSM (Finite State Machine) system to handle player actions, enemy behavior, and game events, making the gameplay smooth, responsive, and easy to expand.
