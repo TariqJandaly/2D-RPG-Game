@@ -12,7 +12,7 @@ public class Player_MoveState : Player_GroundedState
         base.Update();
         player.SetVelocity(player.moveInput.x * player.moveSpeed, rb.linearVelocity.y);
 
-        if (player.moveInput.x == 0 || player.wallDetected && player.moveInput.x == player.facingDir)
+        if (player.moveInput.x == 0 || player.fullWallDetected && player.moveInput.x == player.facingDir)
             stateMachine.ChangeState(player.idleState);
 
 

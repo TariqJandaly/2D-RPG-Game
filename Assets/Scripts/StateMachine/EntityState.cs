@@ -3,25 +3,17 @@ using UnityEngine;
 public abstract class EntityState
 {
     protected StateMachine stateMachine;
-    protected Player player;
     protected string animName;
     protected Animator anim;
     protected Rigidbody2D rb;
-    protected PlayerInputSet input;
     protected float stateTimer;
     protected bool triggerCalled;
 
-    public EntityState(Player player, StateMachine stateMachine, string animName)
+    public EntityState(StateMachine stateMachine, string animName)
     {
         this.stateMachine = stateMachine;
-        this.player = player;
         this.animName = animName;
-
-        anim = player.anim;
-        rb = player.rb;
-        input = player.input;
     }
-
 
     // Called every time the entity enter any state.
     public virtual void Enter()
@@ -34,10 +26,7 @@ public abstract class EntityState
     public virtual void Update()
     {
         stateTimer -= Time.deltaTime;
-        anim.SetFloat("yVelocity", rb.linearVelocity.y);
-
-        if (input.Player.Dash.WasPressedThisFrame() && CanDash())
-            stateMachine.ChangeState(player.dashState);
+        UpdateAnimationParameters();
     }
 
     // Called every time the entity exit any state.
@@ -45,20 +34,14 @@ public abstract class EntityState
     {
         anim.SetBool(animName, false);
     }
-    
-    public void CallAnimationTrigger()
+
+    public void AnimationTrigger()
     {
         triggerCalled = true;
     }
-
-    private bool CanDash()
+    
+    public virtual void UpdateAnimationParameters()
     {
-        if (player.wallDetected)
-            return false;
-
-        if (stateMachine.currentState == player.dashState)
-            return false;
-
-        return true;
+        // This method can be overridden in derived classes to update specific animation parameters.
     }
 }

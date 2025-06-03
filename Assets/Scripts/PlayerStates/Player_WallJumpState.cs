@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player_WallJumpState : EntityState
+public class Player_WallJumpState : PlayerState
 {
     public Player_WallJumpState(Player player, StateMachine stateMachine, string animName) : base(player, stateMachine, animName)
     {
@@ -21,7 +21,7 @@ public class Player_WallJumpState : EntityState
         if (rb.linearVelocity.y < 0 && stateMachine.currentState != player.jumpAttackState)
             stateMachine.ChangeState(player.fallState);
 
-        if (player.wallDetected)
+        if (player.fullWallDetected)
             stateMachine.ChangeState(player.wallSlideState);
 
         if(input.Player.Attack.WasPressedThisFrame())

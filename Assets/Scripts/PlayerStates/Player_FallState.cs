@@ -14,7 +14,7 @@ public class Player_FallState : Player_AirState
         if (player.groundDetected)
             stateMachine.ChangeState(player.idleState);
 
-        if (player.wallDetected)
+        if (player.fullWallDetected)
             stateMachine.ChangeState(player.wallSlideState);
     }
 
