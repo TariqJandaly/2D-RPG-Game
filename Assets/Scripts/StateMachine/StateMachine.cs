@@ -1,6 +1,7 @@
 public class StateMachine
 {
     public EntityState currentState { get; private set; }
+    public bool canChangeState = true;
 
     public void Initialize(EntityState startState)
     {
@@ -10,13 +11,18 @@ public class StateMachine
 
     public void ChangeState(EntityState newState)
     {
-        currentState.Exit();
-        currentState = newState;
-        currentState.Enter();
+        if (canChangeState)
+        {
+            currentState.Exit();
+            currentState = newState;
+            currentState.Enter();
+        }
     }
 
     public void UpdateActiveState()
     {
         currentState.Update();
     }
+
+    public void SwitchOffStateMachine() => canChangeState = false;
 }

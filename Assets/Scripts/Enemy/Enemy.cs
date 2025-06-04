@@ -6,6 +6,7 @@ public class Enemy : Entity
     public Enemy_MoveState moveState;
     public Enemy_AttackState attackState;
     public Enemy_BattleState battleState;
+    public Enemy_DeadState deadState;
 
     [Header("Battle Details")]
     public float battleMoveSpeed = 3f;
@@ -26,10 +27,41 @@ public class Enemy : Entity
     [SerializeField] private LayerMask whatIsPlayer;
     [SerializeField] private Transform playerCheck;
     [SerializeField] private float playerCheckDistance = 10f;
+    public Transform player { get; private set; }
 
-    protected override void Update()
+    public override void EntityDeath()
     {
-        base.Update();
+        base.EntityDeath();
+
+        stateMachine.ChangeState(deadState);
+    }
+
+    public void TryEnterBattleState(Transform player)
+    {
+
+        if (
+            stateMachine.currentState == battleState ||
+            stateMachine.currentState == attackState ||
+            stateMachine.currentState == deadState
+        )
+            return;
+
+        this.player = player;
+        stateMachine.ChangeState(battleState);
+    }
+
+    private void HandlePlayerDeath()
+    {
+        stateMachine.ChangeState(idleState);
+    }
+
+    public Transform GetPlayerReference()
+    {
+
+        if (player == null)
+            player = PlayerDetected().transform;
+
+        return player;
     }
 
     public RaycastHit2D PlayerDetected()
@@ -55,15 +87,25 @@ public class Enemy : Entity
 
         changeY = 0f;
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(playerCheck.position + new Vector3(0, changeY, 0) , new Vector3(playerCheck.position.x + facingDir * attackDistance, playerCheck.position.y + changeY, 0));
+        Gizmos.DrawLine(playerCheck.position + new Vector3(0, changeY, 0), new Vector3(playerCheck.position.x + facingDir * attackDistance, playerCheck.position.y + changeY, 0));
 
         changeY = -0.1f;
         Gizmos.color = Color.green;
         Gizmos.DrawLine(playerCheck.position + new Vector3(0, changeY, 0), new Vector3(playerCheck.position.x + facingDir * minRetreatDistance, playerCheck.position.y + changeY, 0));
-        
+
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(playerCheck.position, playerCheck.position + (Vector3)retreatVelocity);
 
     }
-    
+
+    void OnEnable()
+    {
+        Player.OnPlayerDeath += HandlePlayerDeath;
+    }
+
+    void OnDisable()
+    {
+        Player.OnPlayerDeath -= HandlePlayerDeath;
+    }
+
 }

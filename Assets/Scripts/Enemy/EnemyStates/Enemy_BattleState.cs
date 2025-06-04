@@ -15,14 +15,16 @@ public class Enemy_BattleState : EnemyState
     {
         base.Enter();
 
+        lastTimeWasInBattle = Time.time;
+
         if (player == null)
-            player = enemy.PlayerDetected().transform;
+            player = enemy.GetPlayerReference();
 
         if (WithinRetreatRange())
-        {
-            enemy.rb.linearVelocity = new Vector2(enemy.retreatVelocity.x * DirectionToPlayer(), enemy.retreatVelocity.y);
-            enemy.HandleFlip(DirectionToPlayer());       
-        }
+            {
+                enemy.rb.linearVelocity = new Vector2(enemy.retreatVelocity.x * DirectionToPlayer(), enemy.retreatVelocity.y);
+                enemy.HandleFlip(DirectionToPlayer());
+            }
 
     }
 
