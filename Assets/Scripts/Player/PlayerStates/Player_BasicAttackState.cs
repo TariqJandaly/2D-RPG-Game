@@ -43,6 +43,12 @@ public class Player_BasicAttackState : PlayerState
 
         // Detect and gamage enemies
 
+        if (input.Player.CounterAttack.WasPressedThisFrame())
+        {
+            stateMachine.ChangeState(player.counterAttackState);
+            return;
+        }
+
         if (input.Player.Attack.WasPressedThisFrame())
         {
             QueueNextComboAttack();
