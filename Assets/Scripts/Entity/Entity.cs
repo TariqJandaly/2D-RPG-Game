@@ -26,6 +26,7 @@ public class Entity : MonoBehaviour
     public bool secondaryWallDetected { get; private set; }
 
     private Coroutine knockbackCo;
+    private Coroutine slowDownCo;
     private bool isKnocked;
 
 
@@ -51,6 +52,18 @@ public class Entity : MonoBehaviour
     public virtual void EntityDeath()
     {
         
+    }
+
+    public virtual void SlowDownEntity(float slowMultiplier, float duration)
+    {
+        if (slowDownCo == null)
+            slowDownCo = StartCoroutine(SlowDownEntityCo(slowMultiplier, duration));
+
+    }
+
+    protected virtual IEnumerator SlowDownEntityCo(float slowMultiplier, float duration)
+    {
+        yield return null;
     }
 
     public void ReciveKnockback(Vector2 knockback, float duration)
