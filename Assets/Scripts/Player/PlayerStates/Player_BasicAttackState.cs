@@ -27,12 +27,14 @@ public class Player_BasicAttackState : PlayerState
         comboAttackQueued = false;
         lastAttackTime = Time.time;
         ResetComboIndexIfNeeded();
+        SyncAttackSpeed();
 
         // Define attack direction based on player input or facing direction
         attackDir = player.moveInput.x != 0 ? ((int)player.moveInput.x) : player.facingDir;
 
         anim.SetInteger("basicAttackIndex", comboIndex);
         ApplyAttackVelocity();
+
     }
 
 

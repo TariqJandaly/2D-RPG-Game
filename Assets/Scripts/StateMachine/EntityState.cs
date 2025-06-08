@@ -6,6 +6,7 @@ public abstract class EntityState
     protected string animName;
     protected Animator anim;
     protected Rigidbody2D rb;
+    protected Entity_Stats stats;
     protected float stateTimer;
     protected bool triggerCalled;
 
@@ -39,9 +40,15 @@ public abstract class EntityState
     {
         triggerCalled = true;
     }
-    
+
     public virtual void UpdateAnimationParameters()
     {
-        // This method can be overridden in derived classes to update specific animation parameters.
+
+    }
+
+    public void SyncAttackSpeed()
+    {
+        float attackSpeed = stats.offense.attackSpeed.GetValue();
+        anim.SetFloat("attackSpeedMultiplier", attackSpeed);
     }
 }

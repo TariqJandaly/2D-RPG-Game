@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,12 +6,16 @@ public class Entity_Health : MonoBehaviour, IDamagable
 {
 
     private Slider healthBar;
-    private Entity_VFX entityVfx;
     private Entity entity;
+    private Entity_VFX entityVfx;
     protected Entity_Stats entityStats { get; private set; }
 
     [SerializeField] protected float currentHealth;
     [SerializeField] protected bool isDead;
+
+    [Header("Health regen")]
+    [SerializeField] protected float regenInterval = 1f;
+    [SerializeField] private bool canRegenerateHealth = true;
 
     [Header("On Damage Knockback")]
     [SerializeField] private float knockbackDuration = 0.2f;
@@ -25,14 +30,16 @@ public class Entity_Health : MonoBehaviour, IDamagable
     protected virtual void Awake()
     {
 
-        entityVfx = GetComponent<Entity_VFX>();
-        entity = GetComponent<Entity>();
         healthBar = GetComponentInChildren<Slider>();
+        entity = GetComponent<Entity>();
+        entityVfx = GetComponent<Entity_VFX>();
         entityStats = GetComponent<Entity_Stats>();
 
         currentHealth = entityStats.GetMaxHealth();
         isDead = false;
         UpdateHealthBar();
+
+        InvokeRepeating(nameof(RegenerateHealth), 0f, regenInterval);
     }
 
     public virtual bool TakeDamage(float damage, float elementalDamage, ElementType element, Transform damageDealer)
@@ -62,12 +69,29 @@ public class Entity_Health : MonoBehaviour, IDamagable
         return true;
     }
 
-    private void TakeKnockback(float damage, Transform damageDealer)
+    
+    private void RegenerateHealth()
     {
-        Vector2 knockback = CalculateKnockback(damage, damageDealer);
-        float duration = CalculateKnockbackDuration(damage);
-        entity?.ReciveKnockback(knockback, duration);
+        if (!canRegenerateHealth)
+            return;
+
+        float regenAmount = entityStats.resources.healthRegen.GetValue();
+        IncreaseHealth(regenAmount);
     }
+
+    public void IncreaseHealth(float healAmount)
+    {
+        if (isDead)
+            return;
+
+        float newHealth = currentHealth + healAmount;
+        float maxHealth = entityStats.GetMaxHealth();
+
+        currentHealth = Mathf.Min(newHealth, maxHealth);
+        UpdateHealthBar();
+    }
+
+
 
     private bool AttackEvaded() => Random.Range(0f, 100f) < entityStats.GetEvasion();
 
@@ -93,6 +117,13 @@ public class Entity_Health : MonoBehaviour, IDamagable
             return;
 
         healthBar.value = currentHealth / entityStats.GetMaxHealth();
+    }
+
+    private void TakeKnockback(float damage, Transform damageDealer)
+    {
+        Vector2 knockback = CalculateKnockback(damage, damageDealer);
+        float duration = CalculateKnockbackDuration(damage);
+        entity?.ReciveKnockback(knockback, duration);
     }
 
     private Vector2 CalculateKnockback(float damage, Transform damageDealer)
