@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d829468e15005f64181720d5763e6fd4, type: 3}
+  m_Name: Skill data - Healing Wisp
+  m_EditorClassIdentifier: 
+  cost: 200
+  displayName: Healing Wisp
+  descripiton: When time echo is killed by enemies, it releases a healing wisp that
+    moves toward you and heals you on contact.
+  icon: {fileID: -10723774, guid: ca2f03c80e3c58c4aa5e3f30464fd6d2, type: 3}
