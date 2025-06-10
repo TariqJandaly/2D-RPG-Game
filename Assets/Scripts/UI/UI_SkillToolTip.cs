@@ -1,7 +1,6 @@
-using System;
+using System.Collections;
 using System.Text;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class UI_SkillToolTip : UI_ToolTip
@@ -11,19 +10,22 @@ public class UI_SkillToolTip : UI_ToolTip
     [SerializeField] private TextMeshProUGUI skillName;
     [SerializeField] private TextMeshProUGUI skillDescription;
     [SerializeField] private TextMeshProUGUI skillRequirements;
+    [Space]
     [SerializeField] private Color metConditionColor;
     [SerializeField] private Color notMetConditionColor;
     [SerializeField] private Color importantInfoColor;
-    [SerializeField] private string lockedSkillText = "You've taken a diffrent path - this skill is now locked.";
+    [TextArea] [SerializeField] private string lockedSkillText = "You've taken a diffrent path - this skill is now locked.";
     private string metConditionHex;
     private string notMetConditionHex;
     private string importantInfoHex;
+
+    private Coroutine textEffectCo;
 
     public override void Awake()
     {
         base.Awake();
 
-        skillTree = GetComponentInParent<UI_SkillTree>();
+        skillTree = GetComponentInParent<UI_SkillTree>(true);
 
         metConditionHex = ColorToHex(metConditionColor);
         notMetConditionHex = ColorToHex(notMetConditionColor);
@@ -51,17 +53,40 @@ public class UI_SkillToolTip : UI_ToolTip
     {
         base.ShowToolTip(show, targetRect);
 
-        if (!show)
-            return;
+        if (textEffectCo != null)
+            StopCoroutine(textEffectCo);
 
-        skillName.text = node.skillData.displayName;
+        if (!show)
+                return;
+            
+
+            skillName.text = node.skillData.displayName;
         skillDescription.text = node.skillData.descripiton;
 
-        string stringLockedText = $"<color={importantInfoHex}>{lockedSkillText}</color>";
+        string stringLockedText = stringGetColoredText(importantInfoHex, $"{lockedSkillText}");
 
 
         skillRequirements.text = node.isLocked ?
             stringLockedText : GetRequirements(node.skillData.cost, node.neededNodes, node.conflictNodes);
+    }
+
+    public void LockedSkillEffect()
+    {
+        if (textEffectCo != null)
+            StopCoroutine(textEffectCo);
+
+        textEffectCo = StartCoroutine(TextBlinkEffectCo(skillRequirements, 0.15f, 3));
+    }
+
+    private IEnumerator TextBlinkEffectCo(TextMeshProUGUI text, float blinkInterval, int blinkCount)
+    {
+        for (int i = 0; i < blinkCount; i++)
+        {
+            text.text = stringGetColoredText(notMetConditionHex, lockedSkillText);
+            yield return new WaitForSeconds(blinkInterval);
+            text.text = stringGetColoredText(importantInfoHex, lockedSkillText);
+            yield return new WaitForSeconds(blinkInterval);
+        }
     }
 
     private string GetRequirements(int skillCost, UI_TreeNode[] neededNodes, UI_TreeNode[] conflictNodes)
@@ -72,12 +97,12 @@ public class UI_SkillToolTip : UI_ToolTip
         sb.AppendLine("Requirements:");
 
         string costColor = skillTree.hasEnoughSkillPoints(skillCost) ? metConditionHex : notMetConditionHex;
-        sb.AppendLine($"<color={costColor}>- {skillCost} skill point(s)</color>");
+        sb.AppendLine(stringGetColoredText(costColor, $"- {skillCost} skill point(s)"));
 
         foreach (UI_TreeNode node in neededNodes)
         {
             string nodeColor = node.isUnlocked ? metConditionHex : notMetConditionHex;
-            sb.AppendLine($"<color={nodeColor}>- {node.skillData.displayName}</color>");
+            sb.AppendLine(stringGetColoredText(nodeColor, $"- {node.skillData.displayName}"));
         }
 
         if (conflictNodes.Length <= 0)
@@ -85,14 +110,13 @@ public class UI_SkillToolTip : UI_ToolTip
 
         sb.AppendLine(); // Empty Space
 
-        sb.AppendLine($"<color={importantInfoHex}>Locks out:");
+        sb.AppendLine(stringGetColoredText(importantInfoHex, "Locks out:"));
         foreach (UI_TreeNode node in conflictNodes)
         {
-            sb.AppendLine($"{node.skillData.displayName}");
+            sb.AppendLine(stringGetColoredText(importantInfoHex, $"{node.skillData.displayName}"));
         }
-
-        sb.Append("</color>");
-
         return sb.ToString();
     }
+
+    private string stringGetColoredText(string color, string text) => $"<color={color}>{text}</color>";
 }

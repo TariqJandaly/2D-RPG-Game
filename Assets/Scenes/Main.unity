@@ -294,7 +294,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3103148247459426045, guid: ca2f03c80e3c58c4aa5e3f30464fd6d2, type: 3}
+  m_Sprite: {fileID: -1569402507, guid: ca2f03c80e3c58c4aa5e3f30464fd6d2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -578,7 +578,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 345135629}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: -0.38268346, w: 0.9238795}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -628,6 +628,82 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 345135629}
+  m_CullTransparentMesh: 1
+--- !u!1 &369238023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 369238024}
+  - component: {fileID: 369238026}
+  - component: {fileID: 369238025}
+  m_Layer: 5
+  m_Name: ConnectionLine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &369238024
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369238023}
+  m_LocalRotation: {x: 0, y: 0, z: -0.38268346, w: 0.9238795}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 967447491}
+  m_Father: {fileID: 1843410219}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 250, y: 5}
+  m_Pivot: {x: 0, y: 0.5}
+--- !u!114 &369238025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369238023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &369238026
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369238023}
   m_CullTransparentMesh: 1
 --- !u!1 &392037412
 GameObject:
@@ -811,14 +887,13 @@ RectTransform:
   m_Children:
   - {fileID: 1727944463}
   - {fileID: 1879338672}
-  - {fileID: 1408209190}
   - {fileID: 869785067}
   - {fileID: 1719300890}
   m_Father: {fileID: 516681129}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -679.8839, y: -20.732239}
+  m_AnchoredPosition: {x: -267.00208, y: 59.65381}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &430401993
@@ -839,6 +914,7 @@ MonoBehaviour:
   - {fileID: 2007966249}
   isUnlocked: 0
   isLocked: 0
+  connectionToSkill: {fileID: 934973816}
   skillData: {fileID: 11400000, guid: 1dcee651def1e2946b017c6433e4a967, type: 2}
   skillName: Healing Wisp
   skillCost: 200
@@ -857,18 +933,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   connectionDetails:
-  - connection: {fileID: 1727944464}
+  - displayName: Quick Thinking
+    connection: {fileID: 1727944464}
     node: {fileID: 1747925116}
-    direction: 4
+    direction: 7
     lenght: 252
-  - connection: {fileID: 1879338673}
+    rotation: 0
+  - displayName: Cleanse
+    connection: {fileID: 1879338673}
     node: {fileID: 1286164470}
-    direction: 5
-    lenght: 252
-  - connection: {fileID: 1408209191}
-    node: {fileID: 1916536274}
     direction: 6
     lenght: 252
+    rotation: 0
 --- !u!1 &447611721
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,7 +1002,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3103148247459426045, guid: ca2f03c80e3c58c4aa5e3f30464fd6d2, type: 3}
+  m_Sprite: {fileID: -1844013946, guid: ca2f03c80e3c58c4aa5e3f30464fd6d2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -960,7 +1036,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &516681129
 RectTransform:
   m_ObjectHideFlags: 0
@@ -975,9 +1051,9 @@ RectTransform:
   m_Children:
   - {fileID: 912550027}
   - {fileID: 430401992}
-  - {fileID: 2007966247}
-  - {fileID: 1747925114}
   - {fileID: 1286164468}
+  - {fileID: 1747925114}
+  - {fileID: 2007966247}
   - {fileID: 1916536272}
   - {fileID: 330933384}
   m_Father: {fileID: 1970741758}
@@ -25731,7 +25807,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -678.1161, y: 257.5}
+  m_AnchoredPosition: {x: -361, y: 321}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &912550028
@@ -25750,6 +25826,7 @@ MonoBehaviour:
   conflictNodes: []
   isUnlocked: 0
   isLocked: 0
+  connectionToSkill: {fileID: 0}
   skillData: {fileID: 11400000, guid: cafb601e0baedae4fad44ba573f5c735, type: 2}
   skillName: Time Echo
   skillCost: 150
@@ -25768,14 +25845,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   connectionDetails:
-  - connection: {fileID: 934973816}
+  - displayName: Healing Wisp
+    connection: {fileID: 934973816}
     node: {fileID: 430401993}
     direction: 7
     lenght: 280
-  - connection: {fileID: 146240406}
+    rotation: 20
+  - displayName: Timeless Attack
+    connection: {fileID: 146240406}
     node: {fileID: 2007966249}
-    direction: 8
+    direction: 7
     lenght: 280
+    rotation: -20
 --- !u!1 &926735411
 GameObject:
   m_ObjectHideFlags: 0
@@ -25948,7 +26029,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 9122043360812772263}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &959543553
+--- !u!1 &967447490
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -25956,51 +26037,50 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 959543554}
-  - component: {fileID: 959543556}
-  - component: {fileID: 959543555}
+  - component: {fileID: 967447491}
+  - component: {fileID: 967447493}
+  - component: {fileID: 967447492}
   m_Layer: 5
-  m_Name: ConnectionLine
+  m_Name: ChildNodeConnectionPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &959543554
+--- !u!224 &967447491
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 959543553}
+  m_GameObject: {fileID: 967447490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1588144597}
-  m_Father: {fileID: 1408209190}
+  m_Children: []
+  m_Father: {fileID: 369238024}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 252, y: 5}
-  m_Pivot: {x: 0, y: 0.5}
---- !u!114 &959543555
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 0.000030517578, y: 0}
+  m_SizeDelta: {x: 25, y: 25}
+  m_Pivot: {x: 1, y: 0.5}
+--- !u!114 &967447492
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 959543553}
-  m_Enabled: 1
+  m_GameObject: {fileID: 967447490}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -26016,13 +26096,13 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!222 &959543556
+--- !u!222 &967447493
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 959543553}
+  m_GameObject: {fileID: 967447490}
   m_CullTransparentMesh: 1
 --- !u!1 &1005888701
 GameObject:
@@ -28483,7 +28563,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1120927366}
-  m_LocalRotation: {x: 0, y: 0, z: 0.38268346, w: 0.9238795}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -28735,7 +28815,7 @@ RectTransform:
   m_Father: {fileID: 591402122}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0.000015259, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -28972,7 +29052,7 @@ GameObject:
   - component: {fileID: 1286164470}
   - component: {fileID: 1286164469}
   m_Layer: 5
-  m_Name: UI_TreeNode - For testing
+  m_Name: UI_TreeNode - Cleanse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28996,7 +29076,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -429.6516, y: -18.964478}
+  m_AnchoredPosition: {x: -90.57898, y: -116.76935}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1286164469
@@ -29031,63 +29111,12 @@ MonoBehaviour:
   - {fileID: 1916536274}
   isUnlocked: 0
   isLocked: 0
-  skillData: {fileID: 11400000, guid: b969c9267158b7b42aab47f9c0e5b5a7, type: 2}
-  skillName: For testing
-  skillCost: 100
+  connectionToSkill: {fileID: 1879338673}
+  skillData: {fileID: 11400000, guid: c73252e23d3c901428689c1337becf81, type: 2}
+  skillName: Cleanse
+  skillCost: 300
   skillIcon: {fileID: 447611723}
   skillLockedColorHex: '#9F9797'
---- !u!1 &1408209189
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1408209190}
-  - component: {fileID: 1408209191}
-  m_Layer: 5
-  m_Name: Connection (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1408209190
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1408209189}
-  m_LocalRotation: {x: -0, y: -0, z: -0.38268346, w: 0.9238795}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 959543554}
-  m_Father: {fileID: 430401992}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 5, y: 5}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1408209191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1408209189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11cedd5400f5cbe4aa687ab6d8c2867c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationPoint: {fileID: 959543554}
-  connectionLength: {fileID: 959543554}
-  ChildNodeConnectionPoint: {fileID: 1588144597}
 --- !u!1 &1430227580
 GameObject:
   m_ObjectHideFlags: 0
@@ -29188,7 +29217,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1439174095}
-  m_LocalRotation: {x: 0, y: 0, z: -0.38268346, w: 0.9238795}
+  m_LocalRotation: {x: 0, y: 0, z: -0.21643962, w: 0.976296}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -29463,81 +29492,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1554816301}
-  m_CullTransparentMesh: 1
---- !u!1 &1588144596
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1588144597}
-  - component: {fileID: 1588144599}
-  - component: {fileID: 1588144598}
-  m_Layer: 5
-  m_Name: ChildNodeConnectionPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1588144597
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1588144596}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 959543554}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0.000030517578, y: 0}
-  m_SizeDelta: {x: 25, y: 25}
-  m_Pivot: {x: 1, y: 0.5}
---- !u!114 &1588144598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1588144596}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1588144599
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1588144596}
   m_CullTransparentMesh: 1
 --- !u!1 &1659279089
 GameObject:
@@ -29828,7 +29782,7 @@ GameObject:
   - component: {fileID: 1747925116}
   - component: {fileID: 1747925115}
   m_Layer: 5
-  m_Name: UI_TreeNode - For testing
+  m_Name: UI_TreeNode - Quick Thinking
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29852,7 +29806,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -503.4607, y: 159.2265}
+  m_AnchoredPosition: {x: -268.7699, y: -190.57843}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1747925115
@@ -29887,9 +29841,10 @@ MonoBehaviour:
   - {fileID: 1916536274}
   isUnlocked: 0
   isLocked: 0
-  skillData: {fileID: 11400000, guid: b969c9267158b7b42aab47f9c0e5b5a7, type: 2}
-  skillName: For testing
-  skillCost: 100
+  connectionToSkill: {fileID: 1727944464}
+  skillData: {fileID: 11400000, guid: 449af8e818d95924eabd0e688add73e7, type: 2}
+  skillName: Quick Thinking
+  skillCost: 350
   skillIcon: {fileID: 119604643}
   skillLockedColorHex: '#9F9797'
 --- !u!1 &1748789752
@@ -30267,6 +30222,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1825506534}
   m_CullTransparentMesh: 1
+--- !u!1 &1843410217
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1843410219}
+  - component: {fileID: 1843410218}
+  m_Layer: 5
+  m_Name: Connection (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1843410218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843410217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11cedd5400f5cbe4aa687ab6d8c2867c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationPoint: {fileID: 369238024}
+  connectionLength: {fileID: 369238024}
+  ChildNodeConnectionPoint: {fileID: 967447491}
+--- !u!224 &1843410219
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843410217}
+  m_LocalRotation: {x: -0, y: -0, z: -0.38268346, w: 0.9238795}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 369238024}
+  m_Father: {fileID: 2007966247}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 5, y: 5}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1865540717
 GameObject:
   m_ObjectHideFlags: 0
@@ -30491,7 +30498,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -503.46082, y: -197.1554}
+  m_AnchoredPosition: {x: -460.30127, y: -188.57843}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1916536273
@@ -30520,12 +30527,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neededNodes:
-  - {fileID: 430401993}
-  conflictNodes:
-  - {fileID: 1286164470}
-  - {fileID: 1747925116}
+  - {fileID: 2007966249}
+  conflictNodes: []
   isUnlocked: 0
   isLocked: 0
+  connectionToSkill: {fileID: 1843410218}
   skillData: {fileID: 11400000, guid: b969c9267158b7b42aab47f9c0e5b5a7, type: 2}
   skillName: For testing
   skillCost: 100
@@ -30726,6 +30732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillToolTip: {fileID: 0}
+  skillTree: {fileID: 0}
 --- !u!1 &2007966246
 GameObject:
   m_ObjectHideFlags: 0
@@ -30756,13 +30763,14 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1843410219}
   - {fileID: 1117126929}
   - {fileID: 1748789753}
   m_Father: {fileID: 516681129}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -877.87384, y: 61.277832}
+  m_AnchoredPosition: {x: -458.53345, y: 59.65381}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2007966248
@@ -30777,7 +30785,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c48f3038edb508a4e98d7c55d84b9883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connectionDetails: []
+  connectionDetails:
+  - displayName: For testing
+    connection: {fileID: 1843410218}
+    node: {fileID: 1916536274}
+    direction: 7
+    lenght: 250
+    rotation: 0
 --- !u!114 &2007966249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30796,6 +30810,7 @@ MonoBehaviour:
   - {fileID: 430401993}
   isUnlocked: 0
   isLocked: 0
+  connectionToSkill: {fileID: 146240406}
   skillData: {fileID: 11400000, guid: 324053829bcc4c0499fde33607a6143b, type: 2}
   skillName: Timeless Attack
   skillCost: 200
@@ -30947,7 +30962,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2105695328}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: -0.53729963, w: 0.8433914}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -31317,7 +31332,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9122043360812772263
 Transform:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI_TreeConnection : MonoBehaviour
 {
@@ -7,14 +8,25 @@ public class UI_TreeConnection : MonoBehaviour
     [SerializeField] private RectTransform connectionLength;
     [SerializeField] private RectTransform ChildNodeConnectionPoint;
 
-    public void DirectConnection(NodeDirectionType direction, float length, UI_TreeNode node, UI_TreeConnectHandler connectHandler)
+    private Image connectionImage;
+    private Color originalColor;
+
+    void Awake()
+    {
+        connectionImage = connectionLength.GetComponent<Image>();
+        originalColor = connectionImage.color;
+
+        ConnectionImageUnlocked(false);
+    }
+
+    public void DirectConnection(NodeDirectionType direction, float length, UI_TreeNode node, float offset, UI_TreeConnectHandler connectHandler)
     {
         bool shouldBeActive = direction != NodeDirectionType.None;
 
         float finalLength = shouldBeActive ? length : 0;
         float angle = GetDirectionAngle(direction);
 
-        rotationPoint.localRotation = Quaternion.Euler(0, 0, angle);
+        rotationPoint.localRotation = Quaternion.Euler(0, 0, angle + offset);
         connectionLength.sizeDelta = new Vector2(finalLength, connectionLength.sizeDelta.y);
 
         if (node != null)
@@ -23,6 +35,16 @@ public class UI_TreeConnection : MonoBehaviour
         if (connectHandler != null)
             connectHandler.UpdateConnections();
     }
+
+    public void ConnectionImageUnlocked(bool unlocked)
+    {
+        if (!connectionImage)
+            return;
+
+        connectionImage.color = unlocked ? Color.white : Color.gray;
+    }
+
+    public Image GetConnectionImage() => connectionLength.GetComponent<Image>();
 
     private float GetDirectionAngle(NodeDirectionType type)
     {
